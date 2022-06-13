@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button RegisterButton;
+    private Button SignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,22 @@ public class MainActivity extends AppCompatActivity {
                 openregister();
             }
         });
+
+        // Sign In Button, opening SignInActivity
+        SignInButton = (Button) findViewById(R.id.signInButton);
+        SignInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {opensignin(); }
+        });
     }
 
     public void openregister() {
         Intent intent = new Intent(this, register.class);
         startActivity(intent);
+    }
+
+    public void opensignin() {
+        Intent SignIn_intent = new Intent(this, SignInActivity.class);
+        startActivity(SignIn_intent);
     }
 }
