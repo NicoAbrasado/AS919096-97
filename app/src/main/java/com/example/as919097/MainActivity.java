@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openregister() {
-        Intent intent = new Intent(this, register.class);
-        startActivity(intent);
+        Intent Register_intent = new Intent(this, register.class);
+        startActivity(Register_intent);
     }
 
     public void opensignin() {
