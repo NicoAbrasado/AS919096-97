@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     private Button RegisterButton;
     private Button SignInButton;
 
@@ -16,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Declare the toolbar in the xml file
+        // Declaring the aspects in the xml file
         setSupportActionBar(findViewById(R.id.toolbar));
-
+        // Add this soon mEmailView = findViewById(R.id.LogonEmail);
+        // Add this soon mPasswordView = findViewById(R.id.LogonPassword);
         // Register Button, opening the register activity
         RegisterButton = (Button) findViewById(R.id.register_button);
         RegisterButton.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {opensignin(); }
         });
+
+        // Firebase authentication
+        mAuth = FirebaseAuth.getInstance();
     }
 
     public void openregister() {
@@ -44,5 +51,9 @@ public class MainActivity extends AppCompatActivity {
     public void opensignin() {
         Intent SignIn_intent = new Intent(this, SignInActivity.class);
         startActivity(SignIn_intent);
+    }
+
+    private void attemptLogin() {
+        String email =
     }
 }
