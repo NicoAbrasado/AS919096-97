@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AS919097</string>
+    <string name="emptylogon_error">Please put text in the input fields</string>
+    <string name="invalidlogon_error">Your username or password is incorrect</string>
 </resources>

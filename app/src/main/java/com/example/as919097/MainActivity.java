@@ -87,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         if (email.isEmpty())
-            if (email.equals("") || password.equals("")) return;
+            if (email.equals("") || password.equals("")) {
+                Toast.makeText(this, "Please put text in the input fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
         Toast.makeText(this, "Login in progress...", Toast.LENGTH_SHORT).show();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("firebasee","signInWithEmail() onComplete: " + task.isSuccessful());
                 if (!task.isSuccessful()) {
                     Log.d("firebase", "Problem signing in: " + task.getException());
-                    showErrorDialog("There was a problem signing in");
+                    showErrorDialog("Username or password is incorrect");
                 } else {
                     Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                     finish();
