@@ -2,4 +2,8 @@
     <string name="app_name">AS919097</string>
     <string name="emptylogon_error">Please put text in the input fields</string>
     <string name="invalidlogon_error">Your username or password is incorrect</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">Password too short or does not match</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
 </resources>
