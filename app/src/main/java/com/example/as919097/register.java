@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,6 +33,8 @@ public class register extends AppCompatActivity {
     private EditText mPasswordView;
     private EditText mConfirmPasswordView;
     private AutoCompleteTextView rEmailView;
+    private Button uRegisterButton;
+    private Button uBackButton;
 
     private FirebaseAuth mAuth;
 
@@ -43,6 +47,8 @@ public class register extends AppCompatActivity {
         mPasswordView = findViewById(R.id.registerPassword);
         mConfirmPasswordView = findViewById(R.id.registerPasswordConfirmation);
         mUsernameView = findViewById(R.id.registerUsername);
+        uRegisterButton = findViewById(R.id.RegisterEntryButton);
+        uBackButton = findViewById(R.id.backButton);
 
         // Keyboard sign in action
         mConfirmPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -56,9 +62,28 @@ public class register extends AppCompatActivity {
             }
         });
         mAuth = FirebaseAuth.getInstance();
+
+        // Register Button functionality
+        uRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptRegistration();
+            }
+        });
+
+        // Back Button functionality
+        uBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { backSignIn(); }
+        });
     }
 
     public void signUp(View v) { attemptRegistration(); }
+
+    public void backSignIn() {
+        Intent Back_intent = new Intent(this, MainActivity.class);
+        startActivity(Back_intent);
+    }
 
     private void attemptRegistration() {
 
@@ -117,20 +142,22 @@ public class register extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("firebase","create user onComplete; " + task.isSuccessful());
+                showErrorDialog("User Registration successful! Logon through the Logon page", "Congratulations!");
                 if (!task.isSuccessful()) {
                     Log.d("firebase", "user creation failed");
-                    showErrorDialog("User registeration failed");
+                    showErrorDialog("User registeration failed", "Oops");
                 }
             }
         });
     }
 
-    private void showErrorDialog(String message) {
+    private void showErrorDialog(String message, String title) {
         new AlertDialog.Builder(this)
-                .setTitle("Oops")
+                .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
+
 }
