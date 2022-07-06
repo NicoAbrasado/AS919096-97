@@ -142,21 +142,30 @@ public class register extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("firebase","create user onComplete; " + task.isSuccessful());
-                showErrorDialog("User Registration successful! Logon through the Logon page", "Congratulations!");
+                showCorrectDialog("User Registration successful! Logon through the Logon page");
                 if (!task.isSuccessful()) {
                     Log.d("firebase", "user creation failed");
-                    showErrorDialog("User registeration failed", "Oops");
+                    showErrorDialog("User registration failed");
                 }
             }
         });
     }
 
-    private void showErrorDialog(String message, String title) {
+    private void showErrorDialog(String message) {
         new AlertDialog.Builder(this)
-                .setTitle(title)
+                .setTitle("Oops")
                 .setMessage(message)
                 .setPositiveButton(android.R.string.ok, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+    private void showCorrectDialog(String message) {
+        new AlertDialog.Builder(this)
+                .setTitle("Congratulations!")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .setIcon(android.R.drawable.checkbox_on_background)
                 .show();
     }
 

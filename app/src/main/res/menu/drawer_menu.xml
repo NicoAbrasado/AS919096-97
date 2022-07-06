@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_new">
+
+    <group android:checkableBehavior="single">  <!-- Only select one menu item at a time. stay selected-->
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item android:id="@+id/nav_book"
+            android:icon="@drawable/ic_book"
+            android:title="Book"/>
+        <item android:id="@+id/nav_notices"
+            android:icon="@drawable/ic_notices"
+            android:title="Notices"/>
+    </group>
+</menu>

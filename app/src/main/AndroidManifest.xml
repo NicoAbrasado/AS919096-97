@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AS919097">
         <activity
-            android:name=".SignInActivity"
+            android:name=".homeActivity"
             android:exported="false" />
         <activity
             android:name=".register"

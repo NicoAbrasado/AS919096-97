@@ -21,8 +21,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("firebase", "Problem signing in: " + task.getException());
                     showErrorDialog("Username or password is incorrect");
                 } else {
-                    Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                    Intent intent = new Intent(MainActivity.this, homeActivity.class);
                     finish();
                     startActivity(intent);
                 }
