@@ -19,6 +19,7 @@ public class homeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Home");
 
         drawer = findViewById(R.id.drawer_layout);
 
