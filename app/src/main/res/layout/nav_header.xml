@@ -19,6 +19,4 @@
         android:text="MRGS Mediation"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         />
-
-
 </LinearLayout>

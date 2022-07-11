@@ -1,5 +1,6 @@
 package com.example.as919097;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,8 +9,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MenuItem;
 
-public class homeActivity extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public class homeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
 
     @Override
@@ -17,16 +21,49 @@ public class homeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Defining the toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Home");
 
+        // Defining the navigation drawer
         drawer = findViewById(R.id.drawer_layout);
+        // Creating a navigation listener for the navigation drawer
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
+        // Making the hamburger button rotate
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        if (savedInstanceState == null)
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
+        navigationView.setCheckedItem(R.id.nav_home);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle the cases when a button is pressed in the navigation drawer
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
+                break;
+            case R.id.nav_notices:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new NoticesFragment()).commit();
+                break;
+            case R.id.nav_book:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new BookFragment()).commit();
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override

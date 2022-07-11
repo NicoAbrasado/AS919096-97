@@ -3,8 +3,8 @@
     <style name="Theme.AS919097" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. Change into a dark gray, dark blue and orange -->
         <!-- Refer to document for colour change observation -->
-        <item name="colorPrimary">#595959</item>
-        <item name="colorPrimaryVariant">#5E9ED2</item>
+        <item name="colorPrimary">@color/mainGrey</item>
+        <item name="colorPrimaryVariant">@color/mainBlue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,12 +13,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- Status and Navigation bars customisation -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
-    <style name="ThemeOverlay.AppCompat.Dark">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
 
 </resources>
