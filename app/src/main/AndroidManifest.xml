@@ -13,7 +13,7 @@
             android:name=".homeActivity"
             android:exported="false" />
         <activity
-            android:name=".register"
+            android:name=".registerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

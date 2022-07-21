@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class register extends AppCompatActivity {
+public class registerActivity extends AppCompatActivity {
 
     // Constants
     public static final String CHAT_PREFS = "ChatPrefs";
@@ -151,6 +151,7 @@ public class register extends AppCompatActivity {
         });
     }
 
+    // Error Dialogs
     private void showErrorDialog(String message) {
         new AlertDialog.Builder(this)
                 .setTitle("Oops")

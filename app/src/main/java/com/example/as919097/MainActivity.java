@@ -72,18 +72,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Function for register button
     public void openregister() {
-        Intent Register_intent = new Intent(this, register.class);
+        Intent Register_intent = new Intent(this, registerActivity.class);
         startActivity(Register_intent);
     }
 
+    // Function for sign in button
     public void opensignin() {
         attemptLogin();
     }
 
     private void attemptLogin() {
+        // Getting the email and password values
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+        // Checks for if the email field is empty
         if (email.isEmpty())
             if (email.equals("") || password.equals("")) {
                 Toast.makeText(this, "Please put text in the input fields", Toast.LENGTH_SHORT).show();
