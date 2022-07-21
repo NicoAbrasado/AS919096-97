@@ -1,72 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="240dp"
-        android:layout_height="221dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031"
-        app:srcCompat="@drawable/mrgs_logo" />
-
-    <View
-        android:id="@+id/view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120px"
-        android:background="@color/mainGrey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.387" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/home_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MRGS Mediation"
-        android:textSize="60px"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="240dp"
+            android:layout_height="221dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/mrgs_logo"
+            android:layout_margin="50dp"/>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="299dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="41dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/home_bg" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:background="@color/mainGrey"
+            android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="336dp"
-        android:layout_height="192dp"
-        android:text="@string/home_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.88" />
+        <TextView
+            android:id="@+id/home_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="MRGS Mediation"
+            android:textColor="@color/mainGrey"
+            android:textSize="60px" />
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/home_bg" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="336dp"
+            android:layout_height="192dp"
+            android:text="@string/home_description"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+</ScrollView>
