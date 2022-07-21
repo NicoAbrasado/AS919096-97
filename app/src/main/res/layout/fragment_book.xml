@@ -1,13 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:contentDescription="Ability to Scroll">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
-</RelativeLayout>
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/lightGrey"
+            android:padding="10dp"
+            android:text="All of the information here will be kept confidential between you and a councillor"
+            android:textColor="#546E7A" />
+
+        <TextView
+            android:layout_width="306dp"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:text="@string/book"
+            android:textSize="30sp"
+            />
+
+        <EditText
+            android:id="@+id/book_fullName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autofillHints=""
+            android:hint="Your full name:"
+            android:inputType="text"
+            android:paddingTop="40dp" />
+
+        <EditText
+            android:id="@+id/book_schoolEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Your School Email"
+            android:inputType="textEmailAddress"
+            android:paddingTop="20dp"
+            android:textColorHint="#757575" />
+
+        <EditText
+            android:id="@+id/book_formClass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Your Form Class "
+            android:inputType="text"
+            android:paddingTop="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:text="@string/book_reciepients"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/book_recipients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autofillHints=""
+            android:hint=""
+            android:inputType="text"
+            android:paddingTop="20dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:text="@string/book_time"
+            android:textSize="20sp"
+            android:inputType="datetime"
+            />
+
+        <EditText
+            android:id="@+id/book_timeAndDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/book_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Your own message: "
+            android:paddingTop="20dp"
+            android:textColorHint="#757575" />
+
+        <Button
+            android:id="@+id/book_submit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Submit"
+            android:paddingTop="20dp"
+            android:onClick="book_sumbission"
+            />
+    </LinearLayout>
+</ScrollView>

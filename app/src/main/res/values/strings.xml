@@ -14,4 +14,7 @@
     <string name="home_description">The role of the Mediators is to not only help students resolve conflict behind closed doors in a confidential mediation room. It is also about being “Ambassadors of Social Justice”.
         Mediators lead in the school community by promoting and modelling fairness and respect for others, watching out for harassment and bullying, and by supporting students to get help when needed.
         They aim is to help the school to be a safer place.</string>
+    <string name="book"><b>Thank you for taking the first step, First we need a couple things from you</b></string>
+    <string name="book_reciepients"><b>Other recipients name and form class</b></string>
+    <string name="book_time"><b>Preferred Time and Date</b></string>
 </resources>
