@@ -78,8 +78,7 @@
             android:paddingTop="20dp"
             android:text="@string/book_time"
             android:textSize="20sp"
-            android:inputType="datetime"
-            />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
             android:id="@+id/book_timeAndDate"
@@ -88,13 +87,14 @@
             android:paddingTop="20dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <TextView
+        <EditText
             android:id="@+id/book_message"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Your own message: "
-            android:paddingTop="20dp"
-            android:textColorHint="#757575" />
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:hint="Your own message: " />
 
         <Button
             android:id="@+id/book_submit"
@@ -102,7 +102,7 @@
             android:layout_height="match_parent"
             android:text="Submit"
             android:paddingTop="20dp"
-            android:onClick="book_sumbission"
+            android:hint="Anything else you need to tell us?"
             />
     </LinearLayout>
 </ScrollView>
