@@ -32,7 +32,7 @@ public class BookFragment extends Fragment {
     private EditText bBookMessage;
     private Button bSubmit;
 
-    // Firebase
+    // Firebase referencing
     FirebaseFirestore db;
 
     @Override
