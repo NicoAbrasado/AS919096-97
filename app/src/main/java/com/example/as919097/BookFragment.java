@@ -63,6 +63,7 @@ public class BookFragment extends Fragment {
         return view;
     }
 
+    // Checking if the inputs are valid and should be passed through
     private void attemptBookSubmission() {
         String Name = bNameInput.getText().toString();
         String schoolEmail = bSchoolEmailInput.getText().toString();
@@ -77,7 +78,7 @@ public class BookFragment extends Fragment {
         boolean cancel = false;
         View focusView = null;
 
-        // Validation
+        // Validation, checking if each input is correct
         if (TextUtils.isEmpty(Name)) {
             Toast.makeText(requireContext(), "Please put your name", Toast.LENGTH_SHORT).show();
             focusView = bNameInput;
@@ -106,6 +107,7 @@ public class BookFragment extends Fragment {
             return;
         }
 
+        // Checks to see if any of the inputs failed
         if (cancel) {
             focusView.requestFocus();
         } else {
@@ -113,13 +115,16 @@ public class BookFragment extends Fragment {
         }
     }
 
+    // Write Data into the firestore database
     private void writeFirestore() {
+        // Get inputs and convert into strings
         String Name = bNameInput.getText().toString();
         String schoolEmail = bSchoolEmailInput.getText().toString();
         String formClass = bFormClassInput.getText().toString();
         String recipient = bRecipientsInput.getText().toString();
         String Time = bTimeInput.getText().toString();
 
+        // Creating a hashmap to layout the data in an orderly way
         Map<String, Object> user = new HashMap<>();
         user.put("Full Name",Name);
         user.put("School Email",schoolEmail);
@@ -127,15 +132,18 @@ public class BookFragment extends Fragment {
         user.put("Date", Time);
         user.put("Others involved", recipient);
 
+        // Contact firebase
         db.collection("user")
             .add(user)
             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
+                // Toast messages for success
                 public void onSuccess(DocumentReference documentReference) {
                     Toast.makeText(requireContext(), "Success!, A councillor will be in touch via email", Toast.LENGTH_LONG).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
+                // Toast messages if failed
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show();
                 }

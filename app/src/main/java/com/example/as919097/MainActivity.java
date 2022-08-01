@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Initialising local variables
     private FirebaseAuth mAuth;
     private Button RegisterButton;
     private Button SignInButton;
@@ -87,13 +88,20 @@ public class MainActivity extends AppCompatActivity {
         // Getting the email and password values
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
-        // Checks for if the email field is empty
-        if (email.isEmpty())
-            if (email.equals("") || password.equals("")) {
-                Toast.makeText(this, "Please put text in the input fields", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        // Checks for if the email or password field is empty
+        if (email.equals("") || password.equals("")) {
+            Toast.makeText(this, "Please put text in the input fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Check if email has a "@"
+        if (!emailSignInValid(email)) {
+            Toast.makeText(this, "Please put a valid email",  Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Toast.makeText(this, "Login in progress...", Toast.LENGTH_SHORT).show();
+        // Checking the user credentials through firebase authentication
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -109,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private boolean emailSignInValid(String email) {return(email.contains("@")); }
 
     private void showErrorDialog(String message) {
         new AlertDialog.Builder(this)

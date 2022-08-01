@@ -38,6 +38,7 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        // Setting the default fragment when set
         if (savedInstanceState == null)
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
@@ -48,11 +49,11 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle the cases when a button is pressed in the navigation drawer
         switch (item.getItemId()) {
-            case R.id.nav_home:
+            case R.id.nav_home: // Home button
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
                 break;
-            case R.id.nav_book:
+            case R.id.nav_book: // Booking fragment button
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new BookFragment()).commit();
                 break;
@@ -63,6 +64,7 @@ public class homeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    // For when the navigation drawer is closed
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
