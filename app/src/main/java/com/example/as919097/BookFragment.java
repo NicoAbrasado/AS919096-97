@@ -1,5 +1,6 @@
 package com.example.as919097;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -107,6 +108,12 @@ public class BookFragment extends Fragment {
             return;
         }
 
+        if (!isSchoolEmailValid(schoolEmail)) {
+            Toast.makeText(requireContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
+            focusView = bSchoolEmailInput;
+            cancel = true;
+        }
+
         // Checks to see if any of the inputs failed
         if (cancel) {
             focusView.requestFocus();
@@ -114,6 +121,9 @@ public class BookFragment extends Fragment {
             writeFirestore();
         }
     }
+
+    // Check if school email is valid
+    private boolean isSchoolEmailValid(String email) {return(email.contains("@")); }
 
     // Write Data into the firestore database
     private void writeFirestore() {
@@ -139,7 +149,7 @@ public class BookFragment extends Fragment {
                 @Override
                 // Toast messages for success
                 public void onSuccess(DocumentReference documentReference) {
-                    Toast.makeText(requireContext(), "Success!, A councillor will be in touch via email", Toast.LENGTH_LONG).show();
+                    showSubmittedDialog("Booking Submitted, A Councillor will be in touch via email!");
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -148,5 +158,14 @@ public class BookFragment extends Fragment {
                     Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show();
                 }
         });
+    }
+
+    private void showSubmittedDialog(String message) {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Success!")
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, null)
+                .setIcon(android.R.drawable.checkbox_on_background)
+                .show();
     }
 }

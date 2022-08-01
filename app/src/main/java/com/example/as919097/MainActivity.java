@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Function for register button
     public void openregister() {
-        Intent Register_intent = new Intent(this, registerActivity.class);
+        Intent Register_intent = new Intent(this, RegisterActivity.class);
         startActivity(Register_intent);
     }
 
@@ -108,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("firebasee","signInWithEmail() onComplete: " + task.isSuccessful());
                 if (!task.isSuccessful()) {
                     Log.d("firebase", "Problem signing in: " + task.getException());
-                    showErrorDialog("Username or password is incorrect");
+                    showErrorDialog("Email or password is incorrect");
                 } else {
-                    Intent intent = new Intent(MainActivity.this, homeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     finish();
                     startActivity(intent);
                 }
