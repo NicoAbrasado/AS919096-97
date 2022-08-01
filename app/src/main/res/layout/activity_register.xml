@@ -11,6 +11,7 @@
         android:layout_width="134dp"
         android:layout_height="79dp"
         android:text="Register"
+        android:backgroundTint ="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.808"
@@ -23,12 +24,14 @@
         android:layout_width="134dp"
         android:layout_height="79dp"
         android:text="Back"
+        android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.861"
+        />
 
     <EditText
         android:id="@+id/registerPasswordConfirmation"

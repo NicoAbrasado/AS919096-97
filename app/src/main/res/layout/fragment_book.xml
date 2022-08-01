@@ -103,6 +103,7 @@
             android:text="Submit"
             android:paddingTop="20dp"
             android:hint="Anything else you need to tell us?"
+            android:backgroundTint="@color/green"
             />
     </LinearLayout>
 </ScrollView>

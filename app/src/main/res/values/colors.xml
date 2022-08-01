@@ -10,4 +10,7 @@
     <color name="mainGrey">#595959</color>
     <color name="mainBlue">#5E9ED2</color>
     <color name="lightGrey">#E6F4FF</color>
+
+    <color name="green">#509A47</color>
+    <color name="red">#C50737</color>
 </resources>
